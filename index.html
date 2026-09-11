@@ -197,6 +197,47 @@
   background:var(--paper);
 }
 
+.lfds-network-links__whatsapp{
+  width:max-content;
+  margin:0 auto 14px;
+  padding:10px 17px;
+  border:1px solid rgba(18,63,52,.18);
+  border-radius:999px;
+  background:var(--mint-2);
+  color:var(--forest);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  box-shadow:0 6px 18px rgba(18,63,52,.1);
+  transition:transform .25s var(--ease),background-color .25s var(--ease),box-shadow .25s var(--ease);
+  animation:lfds-whatsapp-glow 4.8s ease-in-out infinite;
+}
+
+.lfds-network-links__whatsapp::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#25D366;
+}
+
+.lfds-network-links__whatsapp:hover,
+.lfds-network-links__whatsapp:focus-visible{
+  transform:translateY(-2px);
+  background:var(--mint);
+  box-shadow:0 9px 22px rgba(18,63,52,.15),0 0 0 4px rgba(37,211,102,.12);
+}
+.lfds-network-links__whatsapp:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+
+@keyframes lfds-whatsapp-glow{
+  0%,100%{box-shadow:0 6px 18px rgba(18,63,52,.1),0 0 0 0 rgba(37,211,102,.18)}
+  50%{box-shadow:0 8px 20px rgba(18,63,52,.13),0 0 0 5px rgba(37,211,102,0)}
+}
+
 .lfds-network-links__row{
   width:min(1040px,100%);
   margin:0 auto;
@@ -249,7 +290,7 @@
 }
 
 @media (prefers-reduced-motion:reduce){
-  .lfds-network-link{animation:none}
+  .lfds-network-link,.lfds-network-links__whatsapp{animation:none}
 }
   
   
@@ -290,6 +331,7 @@
 </div>
 
 <nav class="lfds-network-links" aria-label="LFDS solutions and network">
+  <a class="lfds-network-links__whatsapp" href="https://wa.me/353879961352" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Naveed on +353 87 996 1352">WhatsApp Naveed</a>
   <div class="lfds-network-links__row">
     <a class="lfds-network-link" href="https://naveed.detleng.com" target="_blank" rel="noopener noreferrer">Business Solutions</a>
     <a class="lfds-network-link" href="https://naveed.aapkaustaad.com" target="_blank" rel="noopener noreferrer">Education Solutions</a>
@@ -554,7 +596,7 @@
     const d=getDetails(); if(!d) return;
     status.textContent='Opening WhatsApp with your LFDS message ready to send…';
     const text=buildBody(d);
-    window.open(`https://wa.me/34663430258?text=${encodeURIComponent(text)}`,'_blank','noopener');
+    window.open(`https://wa.me/353879961352?text=${encodeURIComponent(text)}`,'_blank','noopener');
   });
 
   document.getElementById('year').textContent=new Date().getFullYear();
